@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - José Ignacio González Sotillo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563EB; /* Azul Royal Profesional */
+            --secondary: #1E293B; /* Slate oscuro */
+            --accent: #7C3AED; /* Violeta Tech */
+            --bg: #F8FAFC;
+            --text: #334155;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL (HOJA A4) --- */
+        .page {
+            max-width: 210mm; /* Ancho A4 */
+            margin: 40px auto;
+            background: var(--white);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden; /* Para contener la barra lateral */
+        }
+
+        /* --- LAYOUT DE DOS COLUMNAS --- */
+        .layout {
+            display: grid;
+            grid-template-columns: 32% 68%; /* Barra lateral | Contenido principal */
+            min-height: 297mm; /* Alto A4 */
+        }
+
+        /* --- BARRA LATERAL (IZQUIERDA) --- */
+        .sidebar {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 40px 25px;
+            text-align: left;
+        }
+
+        .profile-pic-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .sidebar h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.6em;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .sidebar .role {
+            font-size: 0.9em;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .contact-info div {
+            margin-bottom: 15px;
+            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info a { color: #CBD5E1; text-decoration: none; transition: 0.3s; }
+        .contact-info a:hover { color: var(--accent); }
+
+        .sidebar-section { margin-top: 40px; }
+        .sidebar-title {
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #475569;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-bottom: 8px;
+            margin-right: 5px;
+        }
+
+        /* --- CONTENIDO PRINCIPAL (DERECHA) --- */
+        .main-content {
+            padding: 40px;
+            background: var(--white);
+        }
+
+        .quote-box {
+            background: #EFF6FF;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #475569;
+            font-family: 'Merriweather', serif;
+            font-size: 0.95em;
+        }
+
+        .section { margin-bottom: 35px; }
+        
+        .section-title {
+            color: var(--secondary);
+            font-size: 1.3em;
+            font-weight: 800;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title span { color: var(--accent); }
+
+        /* Experiencia y Proyectos */
+        .item { margin-bottom: 20px; }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        
+        .item-title { font-weight: 700; color: var(--secondary); font-size: 1.1em; }
+        .item-company { color: var(--primary); font-weight: 600; font-size: 0.95em; }
+        .item-date { font-size: 0.85em; color: #64748B; font-style: italic; }
+        
+        .item-desc ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+        
+        .item-desc li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            color: #475569;
+        }
+        
+        .item-desc li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            margin-top: 8px;
+            font-size: 0.8em;
+            color: #64748B;
+        }
+        .tech-stack span { font-weight: 600; color: var(--accent); }
+
+        /* Botón Flotante (Solo pantalla) */
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            font-weight: bold;
+            transition: transform 0.3s;
+            cursor: pointer;
+            z-index: 100;
+            border: none;
+        }
+        .download-btn:hover { transform: translateY(-5px) scale(1.05); background: var(--primary); }
+
+        /* --- IMPRESIÓN --- */
+        @media print {
+            body { background: white; -webkit-print-color-adjust: exact; }
+            .page { margin: 0; box-shadow: none; max-width: 100%; width: 100%; }
+            .download-btn { display: none; }
+            .layout { height: auto; display: grid; } /* Mantiene grid */
+            .sidebar { background: #1E293B !important; color: white !important; -webkit-print-color-adjust: exact; }
+            a { text-decoration: none; color: inherit; }
+            @page { margin: 0; size: A4; }
+        }
+
+        /* Responsive Móvil */
+        @media (max-width: 768px) {
+            .layout { grid-template-columns: 1fr; }
+            .sidebar { text-align: center; padding: 30px; }
+            .contact-info div { justify-content: center; }
+            .page { margin: 0; width: 100%; }
+            .sidebar h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="download-btn" onclick="window.print()">🖨️ Guardar como PDF</button>
+
+    <div class="page">
+        <div class="layout">
+            <aside class="sidebar">
+                <div class="profile-pic-placeholder">JG</div>
+                <h1>José Ignacio<br>González Sotillo</h1>
+                <span class="role">Tech-Accountant & Developer</span>
+
+                <div class="contact-info" style="margin-top: 30px;">
+                    <div>📧 <a href="mailto:nachogonzalezsotillo@gmail.com">nachogonzalezsotillo@gmail.com</a></div>
+                    <div>📱 <a href="tel:+584149336367">+58 414-933-6367</a></div>
+                    <div>📍 Caracas, Venezuela</div>
+                    <div>🔗 <a href="https://linkedin.com/in/josé-gonzález" target="_blank">linkedin.com/in/josé-gonzález</a></div>
+                    <div>💻 <a href="https://github.com/nachosotillo" target="_blank">github.com/nachosotillo</a></div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Tech Stack</div>
+                    <span class="skill-tag">Python 🐍</span>
+                    <span class="skill-tag">n8n 🤖</span>
+                    <span class="skill-tag">Google Gemini API</span>
+                    <span class="skill-tag">Hugging Face</span>
+                    <span class="skill-tag">Gradio</span>
+                    <span class="skill-tag">Excel Avanzado</span>
+                    <span class="skill-tag">Git/GitHub</span>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Contabilidad</div>
+                    <span class="skill-tag">NIIF / IFRS</span>
+                    <span class="skill-tag">Análisis Financiero</span>
+                    <span class="skill-tag">Costos & Presupuestos</span>
+                    <span class="skill-tag">Auditoría (Básico)</span>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Idiomas</div>
+                    <div style="font-size: 0.9em; margin-bottom: 5px;">Español (Nativo)</div>
+                    <div style="font-size: 0.9em;">Inglés (Técnico/Lectura)</div>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                
+                <div class="quote-box">
+                    "Caminar hacia el futuro. Mi objetivo es ser el puente entre la contabilidad tradicional y la transformación digital, construyendo soluciones que automaticen el trabajo manual."
+                </div>
+
+                <section class="section">
+                    <h2 class="section-title"><span>⚡</span> Experiencia Profesional</h2>
+
+                    <div class="item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Co-Fundador & Desarrollador de Automatizaciones</div>
+                                <div class="item-company">365 Automations</div>
+                            </div>
+                            <div class="item-date">2025 - Presente</div>
+                        </div>
+                        <div class="item-desc">
+                            <ul>
+                                <li>Desarrollo de sistema de gestión de vacaciones usando <strong>n8n, Google Forms y Telegram</strong>.</li>
+                                <li>Automatización B2B: Recepción → Validación de disponibilidad → Aprobación → Notificación.</li>
+                                <li>Logro: Reducción del 90% en tiempos de gestión administrativa.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Despachador & Analista de Inventarios</div>
+                                <div class="item-company">Crema Helados (Franquicia)</div>
+                            </div>
+                            <div class="item-date">2023 - 2024</div>
+                        </div>
+                        <div class="item-desc">
+                            <ul>
+                                <li>Diseño de sistema en Excel para control de inventarios de alto volumen.</li>
+                                <li>Optimización operativa reduciendo errores de stock en un 40%.</li>
+                                <li>Negociación directa y atención a clientes mayoristas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title"><span>🚀</span> Proyectos Destacados</h2>
+
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="item-title">Chatbot Contable con IA</div>
+                        </div>
+                        <div class="item-desc">
+                            Asistente virtual entrenado con <strong>Google Gemini</strong> y desplegado en <strong>Hugging Face</strong>. Resuelve dudas sobre normativa contable y asientos mediante ingeniería de prompts avanzada.
+                            <div class="tech-stack">Stack: <span>Python, LangChain, Gradio, LLMs</span></div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="item-title">Suite Educativa Web (PPE & Depreciación)</div>
+                        </div>
+                        <div class="item-desc">
+                            Aplicaciones web interactivas alojadas en GitHub Pages para el estudio de Propiedad, Planta y Equipo. Convierte teoría contable en herramientas digitales visuales.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title"><span>🎓</span> Educación</h2>
+
+                    <div class="item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Licenciatura en Contaduría Pública</div>
+                                <div class="item-company">Universidad Central de Venezuela (UCV)</div>
+                            </div>
+                            <div class="item-date">4to Semestre (En curso)</div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Administración de Empresas</div>
+                                <div class="item-company">Universidad Católica Andrés Bello (UCAB)</div>
+                            </div>
+                            <div class="item-date">4 Semestres Aprobados</div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>
