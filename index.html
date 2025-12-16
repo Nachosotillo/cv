@@ -10,35 +10,34 @@
     
     <style>
         :root {
-            /* Paleta "Fintech" Sobria */
-            --ink: #111827;       /* Casi negro, para textos principales */
-            --slate: #475569;     /* Gris azulado profesional */
+            --ink: #111827;       
+            --slate: #475569;     
             --light-slate: #94a3b8;
-            --accent: #2563EB;    /* Azul Royal intenso (Tech) */
+            --accent: #2563EB;    
             --bg: #ffffff;
-            --surface: #F8FAFC;   /* Fondo muy sutil para secciones */
+            --surface: #F8FAFC;   
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #f1f5f9; /* Fondo gris para la ventana del navegador */
+            background-color: #f1f5f9;
             color: var(--slate);
             font-family: 'Inter', sans-serif;
-            font-size: 13.5px; /* Tamaño optimizado para mucha info */
+            font-size: 13.5px;
             line-height: 1.6;
         }
 
         .page {
-            max-width: 210mm; /* A4 */
+            max-width: 210mm;
             margin: 40px auto;
             background: var(--bg);
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            padding: 50px; /* Márgenes internos generosos como un reporte oficial */
+            padding: 50px;
             position: relative;
         }
 
-        /* --- HEADER --- */
+        /* HEADER */
         header {
             border-bottom: 2px solid var(--ink);
             padding-bottom: 25px;
@@ -49,7 +48,7 @@
         }
 
         .header-main h1 {
-            font-family: 'Playfair Display', serif; /* Toque editorial clásico */
+            font-family: 'Playfair Display', serif;
             font-size: 2.2em;
             color: var(--ink);
             line-height: 1;
@@ -78,7 +77,7 @@
         }
         .contact-grid a:hover { color: var(--accent); }
 
-        /* --- MISSION STATEMENT (HOOK) --- */
+        /* MISSION HOOK */
         .mission-box {
             background: var(--surface);
             padding: 20px;
@@ -98,14 +97,13 @@
             color: var(--slate);
         }
 
-        /* --- LAYOUT GRID --- */
+        /* GRID LAYOUT */
         .layout-grid {
             display: grid;
-            grid-template-columns: 63% 32%; /* Asimetría: Columna ancha + Columna estrecha */
+            grid-template-columns: 63% 32%;
             gap: 5%;
         }
 
-        /* --- ESTILOS DE SECCIÓN --- */
         h2 {
             font-size: 0.85em;
             text-transform: uppercase;
@@ -118,78 +116,46 @@
             margin-top: 10px;
         }
 
-        /* Experiencia y Proyectos */
+        /* EXPERIENCIA */
         .entry { margin-bottom: 25px; }
-        
-        .entry-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-        
+        .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
         .entry-title { font-weight: 700; color: var(--ink); font-size: 1.05em; }
         .entry-org { color: var(--accent); font-weight: 600; font-size: 0.9em; }
         .entry-date { font-size: 0.8em; font-style: italic; color: var(--light-slate); }
         
-        .entry-content ul {
-            list-style: none;
-            margin-top: 8px;
-        }
-        .entry-content li {
-            position: relative;
-            padding-left: 15px;
-            margin-bottom: 4px;
-            text-align: justify;
-        }
-        .entry-content li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
+        .entry-content ul { list-style: none; margin-top: 8px; }
+        .entry-content li { position: relative; padding-left: 15px; margin-bottom: 4px; text-align: justify; }
+        .entry-content li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
 
-        /* Enlaces (Botones sutiles) */
+        /* LINKS */
         .links-row { margin-top: 8px; }
         .links-row a {
-            display: inline-block;
-            font-size: 0.75em;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--ink);
-            border: 1px solid #e2e8f0;
-            padding: 3px 10px;
-            margin-right: 8px;
-            border-radius: 2px;
-            font-weight: 600;
-            transition: all 0.2s;
+            display: inline-block; font-size: 0.75em; text-transform: uppercase; text-decoration: none;
+            color: var(--ink); border: 1px solid #e2e8f0; padding: 3px 10px; margin-right: 8px;
+            border-radius: 2px; font-weight: 600; transition: all 0.2s;
         }
         .links-row a:hover { background: var(--accent); color: white; border-color: var(--accent); }
 
-        /* --- SKILLS & CERTS (COLUMNA DERECHA) --- */
+        /* SIDEBAR ITEMS */
         .skill-block { margin-bottom: 25px; }
         .skill-category { font-weight: 700; font-size: 0.85em; color: var(--ink); margin-bottom: 8px; display: block;}
         
         .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px; }
-        .tag {
-            background: var(--surface);
-            padding: 3px 8px;
-            font-size: 0.8em;
-            border-radius: 2px;
-            color: var(--slate);
-            border: 1px solid #e2e8f0;
-        }
-        .tag.tech { border-color: #bfdbfe; color: #1e40af; background: #eff6ff; } /* Azul sutil para tech */
+        .tag { background: var(--surface); padding: 3px 8px; font-size: 0.8em; border-radius: 2px; color: var(--slate); border: 1px solid #e2e8f0; }
+        .tag.tech { border-color: #bfdbfe; color: #1e40af; background: #eff6ff; }
 
+        /* CURSOS CON FECHAS */
         .cert-list .cert-item {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border-left: 2px solid #e2e8f0;
             padding-left: 10px;
+            display: flex;
+            justify-content: space-between; /* Separa nombre y fecha */
+            align-items: baseline;
         }
-        .cert-item strong { display: block; font-size: 0.85em; color: var(--ink); }
-        .cert-item span { font-size: 0.8em; color: var(--light-slate); }
+        .cert-item strong { font-size: 0.85em; color: var(--ink); }
+        .cert-item span { font-size: 0.75em; color: var(--light-slate); font-weight: 600; }
 
-        /* Botón Flotante */
         .download-btn {
             position: fixed; bottom: 30px; right: 30px;
             background: var(--ink); color: white; padding: 15px 30px;
@@ -198,7 +164,6 @@
         }
         .download-btn:hover { transform: translateY(-3px); background: var(--accent); }
 
-        /* PRINT */
         @media print {
             body { background: white; }
             .page { margin: 0; box-shadow: none; width: 100%; max-width: 100%; padding: 40px; }
@@ -230,7 +195,7 @@
             <div class="contact-grid">
                 <a href="mailto:nachogonzalezsotillo@gmail.com">nachogonzalezsotillo@gmail.com</a>
                 <a href="tel:+584149336367">+58 414-933-6367</a>
-                <a href="https://linkedin.com/in/josé-gonzález" target="_blank">linkedin.com/in/josé-gonzález</a>
+                <a href="https://www.linkedin.com/in/josé-gonzález-4a88a9234" target="_blank">linkedin.com/in/josé-gonzález-4a88a9234</a>
                 <a href="https://github.com/nachosotillo" target="_blank">github.com/nachosotillo</a>
                 <span>Caracas, Venezuela</span>
             </div>
@@ -372,24 +337,25 @@
                 <section class="skill-block">
                     <h2>Cursos (Platzi)</h2>
                     
-                    <span class="skill-category">IA & Automatización (2025)</span>
+                    <span class="skill-category">IA & Automatización</span>
                     <div class="cert-list">
-                        <div class="cert-item"><strong>Ingeniería de Prompts</strong></div>
-                        <div class="cert-item"><strong>N8N: Automatización</strong></div>
-                        <div class="cert-item"><strong>Agentes de IA</strong></div>
+                        <div class="cert-item"><strong>Ingeniería de Prompts</strong><span>2025</span></div>
+                        <div class="cert-item"><strong>N8N: Automatización</strong><span>2025</span></div>
+                        <div class="cert-item"><strong>Agentes de IA</strong><span>2025</span></div>
                     </div>
 
                     <span class="skill-category" style="margin-top: 15px;">Matemáticas & Lógica</span>
                     <div class="cert-list">
-                        <div class="cert-item"><strong>Algoritmos y Lógica</strong></div>
-                        <div class="cert-item"><strong>Lenguaje Matemático</strong></div>
+                        <div class="cert-item"><strong>Algoritmos y Lógica</strong><span>2021</span></div>
+                        <div class="cert-item"><strong>Lenguaje Matemático</strong><span>2022</span></div>
                     </div>
 
                     <span class="skill-category" style="margin-top: 15px;">Data & Finanzas</span>
                     <div class="cert-list">
-                        <div class="cert-item"><strong>Fundamentos de Python</strong></div>
-                        <div class="cert-item"><strong>Análisis de Negocios</strong></div>
-                        <div class="cert-item"><strong>Bitcoin y Blockchain</strong></div>
+                        <div class="cert-item"><strong>Fundamentos Python</strong><span>2022</span></div>
+                        <div class="cert-item"><strong>Análisis de Negocios</strong><span>2022</span></div>
+                        <div class="cert-item"><strong>Bitcoin y Blockchain</strong><span>2021</span></div>
+                        <div class="cert-item"><strong>Educación Financiera</strong><span>2021</span></div>
                     </div>
                 </section>
 
@@ -397,7 +363,7 @@
                     <h2>Idiomas</h2>
                     <div class="cert-list">
                         <div class="cert-item"><strong>Español</strong><span>Nativo</span></div>
-                        <div class="cert-item"><strong>Inglés</strong><span>Técnico (Lectura)</span></div>
+                        <div class="cert-item"><strong>Inglés</strong><span>Técnico</span></div>
                     </div>
                 </section>
             </aside>
