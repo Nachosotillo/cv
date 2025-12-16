@@ -3,370 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Tech-Accountant - José Ignacio</title>
+    <title>CV - José Ignacio González Sotillo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Colores inspirados en temas de código (Dracula/One Dark) */
-            --sidebar-bg: #0f172a; /* Azul noche muy oscuro */
-            --code-keyword: #c678dd; /* Morado para 'class', 'def' */
-            --code-string: #98c379; /* Verde para textos */
-            --code-var: #61afef; /* Azul para variables */
-            --code-comment: #5c6370; /* Gris para comentarios */
-            --primary: #2563EB;
-            --text-dark: #334155;
-            --white: #ffffff;
+            /* Paleta "Fintech" Sobria */
+            --ink: #111827;       /* Casi negro, para textos principales */
+            --slate: #475569;     /* Gris azulado profesional */
+            --light-slate: #94a3b8;
+            --accent: #2563EB;    /* Azul Royal intenso (Tech) */
+            --bg: #ffffff;
+            --surface: #F8FAFC;   /* Fondo muy sutil para secciones */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #e2e8f0;
-            color: var(--text-dark);
-            line-height: 1.5;
-            -webkit-print-color-adjust: exact;
+            background-color: #f1f5f9; /* Fondo gris para la ventana del navegador */
+            color: var(--slate);
+            font-family: 'Inter', sans-serif;
+            font-size: 13.5px; /* Tamaño optimizado para mucha info */
+            line-height: 1.6;
         }
 
         .page {
-            max-width: 210mm;
+            max-width: 210mm; /* A4 */
             margin: 40px auto;
-            background: var(--white);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            display: grid;
-            grid-template-columns: 32% 68%; /* Proporción áurea aproximada */
-            min-height: 297mm;
+            background: var(--bg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            padding: 50px; /* Márgenes internos generosos como un reporte oficial */
+            position: relative;
         }
 
-        /* --- BARRA LATERAL (ESTILO IDE) --- */
-        .sidebar {
-            background: var(--sidebar-bg);
-            color: #abb2bf;
-            padding: 35px 25px;
-            font-family: 'JetBrains Mono', monospace; /* Fuente de código */
-            font-size: 11px;
-            border-right: 1px solid #333;
+        /* --- HEADER --- */
+        header {
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #61afef, #c678dd);
-            border-radius: 15px; /* Cuadrado redondeado es más "app icon" */
-            margin: 0 auto 20px auto;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2.5em; color: white; font-weight: bold;
-            box-shadow: 0 0 20px rgba(97, 175, 239, 0.4);
-        }
-
-        .dev-name {
-            color: var(--white);
-            font-size: 1.6em;
-            text-align: center;
+        .header-main h1 {
+            font-family: 'Playfair Display', serif; /* Toque editorial clásico */
+            font-size: 2.2em;
+            color: var(--ink);
+            line-height: 1;
             margin-bottom: 5px;
-            font-weight: 700;
-            letter-spacing: -1px;
         }
 
-        .dev-role {
-            color: var(--code-keyword);
-            text-align: center;
-            display: block;
-            margin-bottom: 30px;
-            font-size: 0.9em;
-        }
-
-        /* SIMULACIÓN DE CÓDIGO */
-        .code-block {
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            border: 1px solid #333;
-        }
-
-        .line { display: block; margin-bottom: 6px; word-break: break-all;}
-        .kw { color: var(--code-keyword); font-weight: bold; } /* Keyword */
-        .var { color: var(--code-var); } /* Variable */
-        .str { color: var(--code-string); } /* String */
-        .comment { color: var(--code-comment); font-style: italic; display: block; margin-top: 5px;}
-
-        .skill-group { margin-bottom: 20px; }
-        .skill-title { 
-            color: var(--white); 
-            border-bottom: 1px solid #333; 
-            padding-bottom: 5px; 
-            margin-bottom: 10px; 
-            font-weight: bold;
-        }
-        
-        .tech-badge {
-            display: inline-block;
-            background: #1e293b;
-            color: var(--code-var);
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin: 0 4px 6px 0;
-            border: 1px solid #333;
-            font-size: 0.9em;
-        }
-
-        /* --- CONTENIDO PRINCIPAL (ESTILO CONTADOR MODERNO) --- */
-        .main-content {
-            padding: 40px;
+        .header-main .subtitle {
             font-family: 'Inter', sans-serif;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--accent);
         }
 
-        .header-quote {
-            background: #F1F5F9;
-            border-left: 4px solid var(--primary);
-            padding: 15px;
-            margin-bottom: 30px;
-            font-family: 'Merriweather', serif;
-            color: #475569;
+        .contact-grid {
+            text-align: right;
+            font-size: 0.8em;
+        }
+        .contact-grid a {
+            color: var(--slate);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 2px;
+            transition: color 0.2s;
+        }
+        .contact-grid a:hover { color: var(--accent); }
+
+        /* --- MISSION STATEMENT (HOOK) --- */
+        .mission-box {
+            background: var(--surface);
+            padding: 20px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 40px;
+        }
+        .mission-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
             font-style: italic;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+        .profile-text {
+            font-size: 0.95em;
+            text-align: justify;
+            color: var(--slate);
         }
 
-        .section-title {
-            font-family: 'JetBrains Mono', monospace; /* Toque tech en títulos */
-            font-size: 1.2em;
-            color: var(--primary);
-            border-bottom: 2px solid #E2E8F0;
+        /* --- LAYOUT GRID --- */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 63% 32%; /* Asimetría: Columna ancha + Columna estrecha */
+            gap: 5%;
+        }
+
+        /* --- ESTILOS DE SECCIÓN --- */
+        h2 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--ink);
+            font-weight: 800;
+            border-bottom: 1px solid #e2e8f0;
             padding-bottom: 8px;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            display: flex; align-items: center; gap: 10px;
+            margin-top: 10px;
         }
 
-        .job-item { margin-bottom: 25px; }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; }
-        .job-title { font-weight: 700; font-size: 1.05em; color: #1e293b; }
-        .job-company { color: var(--primary); font-weight: 600; font-size: 0.95em; }
-        .job-date { font-family: 'JetBrains Mono', monospace; font-size: 0.8em; color: #64748B; background: #eff6ff; padding: 2px 6px; border-radius: 4px;}
+        /* Experiencia y Proyectos */
+        .entry { margin-bottom: 25px; }
         
-        .job-desc ul { margin-top: 8px; list-style: none; }
-        .job-desc li { 
-            margin-bottom: 6px; 
-            padding-left: 15px; 
-            position: relative; 
-            font-size: 0.95em; 
-            color: #475569; 
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
         }
-        .job-desc li::before { content: "›"; position: absolute; left: 0; color: var(--primary); font-weight: bold; font-family: monospace; font-size: 1.2em; line-height: 1;}
+        
+        .entry-title { font-weight: 700; color: var(--ink); font-size: 1.05em; }
+        .entry-org { color: var(--accent); font-weight: 600; font-size: 0.9em; }
+        .entry-date { font-size: 0.8em; font-style: italic; color: var(--light-slate); }
+        
+        .entry-content ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+        .entry-content li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+        .entry-content li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
 
-        /* Links de proyectos estilo botón moderno */
-        .project-links a {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75em;
-            text-decoration: none;
-            background: var(--primary);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            margin-right: 10px;
-            transition: 0.2s;
+        /* Enlaces (Botones sutiles) */
+        .links-row { margin-top: 8px; }
+        .links-row a {
             display: inline-block;
-            margin-top: 5px;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--ink);
+            border: 1px solid #e2e8f0;
+            padding: 3px 10px;
+            margin-right: 8px;
+            border-radius: 2px;
+            font-weight: 600;
+            transition: all 0.2s;
         }
-        .project-links a:hover { background: #1e40af; }
+        .links-row a:hover { background: var(--accent); color: white; border-color: var(--accent); }
 
-        /* Certificaciones en Grid */
-        .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .cert-item { margin-bottom: 8px; font-size: 0.9em; border-left: 2px solid #e2e8f0; padding-left: 10px; }
-        .cert-item strong { display: block; color: #334155; }
-        .cert-item small { color: #94A3B8; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+        /* --- SKILLS & CERTS (COLUMNA DERECHA) --- */
+        .skill-block { margin-bottom: 25px; }
+        .skill-category { font-weight: 700; font-size: 0.85em; color: var(--ink); margin-bottom: 8px; display: block;}
+        
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px; }
+        .tag {
+            background: var(--surface);
+            padding: 3px 8px;
+            font-size: 0.8em;
+            border-radius: 2px;
+            color: var(--slate);
+            border: 1px solid #e2e8f0;
+        }
+        .tag.tech { border-color: #bfdbfe; color: #1e40af; background: #eff6ff; } /* Azul sutil para tech */
 
-        /* Botón descargar */
+        .cert-list .cert-item {
+            margin-bottom: 10px;
+            border-left: 2px solid #e2e8f0;
+            padding-left: 10px;
+        }
+        .cert-item strong { display: block; font-size: 0.85em; color: var(--ink); }
+        .cert-item span { font-size: 0.8em; color: var(--light-slate); }
+
+        /* Botón Flotante */
         .download-btn {
             position: fixed; bottom: 30px; right: 30px;
-            background: linear-gradient(45deg, #2563EB, #7C3AED);
-            color: white; padding: 15px 30px; border-radius: 50px;
-            font-family: 'JetBrains Mono', monospace; border: none;
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
-            cursor: pointer; z-index: 100; transition: transform 0.2s;
+            background: var(--ink); color: white; padding: 15px 30px;
+            border-radius: 50px; text-decoration: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            font-weight: 600; border: none; cursor: pointer; transition: transform 0.2s;
         }
-        .download-btn:hover { transform: translateY(-3px); }
+        .download-btn:hover { transform: translateY(-3px); background: var(--accent); }
 
+        /* PRINT */
         @media print {
             body { background: white; }
-            .page { margin: 0; box-shadow: none; width: 100%; max-width: 100%; min-height: 100vh; }
+            .page { margin: 0; box-shadow: none; width: 100%; max-width: 100%; padding: 40px; }
             .download-btn { display: none; }
-            .sidebar { background-color: #0f172a !important; color: #abb2bf !important; -webkit-print-color-adjust: exact; }
-            .project-links a { border: 1px solid #2563EB; color: #2563EB; background: none; }
+            .mission-box { border-left-width: 2px !important; background-color: #f8fafc !important; -webkit-print-color-adjust: exact; }
+            a { color: var(--ink); text-decoration: none; }
+            .tag.tech { border: 1px solid #cbd5e1; }
             @page { margin: 0; size: A4; }
         }
-        
-        @media (max-width: 700px) {
-            .page { grid-template-columns: 1fr; }
-            .sidebar { padding: 30px; text-align: left; }
+
+        @media (max-width: 768px) {
+            .page { padding: 20px; width: 100%; }
+            header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .contact-grid { text-align: left; }
+            .layout-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <button class="download-btn" onclick="window.print()">>_ GENERAR PDF</button>
+    <button class="download-btn" onclick="window.print()">📥 Imprimir PDF</button>
 
     <div class="page">
-        <aside class="sidebar">
-            <div class="profile-pic">JI</div>
-            <div class="dev-name">José Ignacio<br>González</div>
-            <span class="dev-role">&lt;Tech-Accountant /&gt;</span>
-
-            <div class="code-block">
-                <span class="comment"># Contact Info</span>
-                <span class="line"><span class="kw">class</span> <span class="var">Usuario</span>:</span>
-                <span class="line">&nbsp;&nbsp;<span class="kw">def</span> <span class="var">__init__</span>(self):</span>
-                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;self.email = <span class="str">"nachogonzalez..."</span></span>
-                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;self.phone = <span class="str">"+58 414-933..."</span></span>
-                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;self.loc = <span class="str">"Caracas, VE"</span></span>
-                <br>
-                <span class="line">&nbsp;&nbsp;<span class="kw">def</span> <span class="var">socials</span>(self):</span>
-                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> [<a href="#" style="color:#61afef; text-decoration:none;">"LinkedIn"</a>, <a href="#" style="color:#61afef; text-decoration:none;">"GitHub"</a>]</span>
+        <header>
+            <div class="header-main">
+                <h1>José Ignacio<br>González Sotillo</h1>
+                <div class="subtitle">Tech-Accountant • Developer • Analista</div>
             </div>
-
-            <div class="skill-group">
-                <div class="skill-title">_TECH_STACK</div>
-                <span class="tech-badge">Python 3.10</span>
-                <span class="tech-badge">n8n Workflows</span>
-                <span class="tech-badge">Gemini API</span>
-                <span class="tech-badge">HuggingFace</span>
-                <span class="tech-badge">Gradio</span>
-                <span class="tech-badge">Git</span>
+            <div class="contact-grid">
+                <a href="mailto:nachogonzalezsotillo@gmail.com">nachogonzalezsotillo@gmail.com</a>
+                <a href="tel:+584149336367">+58 414-933-6367</a>
+                <a href="https://linkedin.com/in/josé-gonzález" target="_blank">linkedin.com/in/josé-gonzález</a>
+                <a href="https://github.com/nachosotillo" target="_blank">github.com/nachosotillo</a>
+                <span>Caracas, Venezuela</span>
             </div>
+        </header>
 
-            <div class="skill-group">
-                <div class="skill-title">_FINANCE_CORE</div>
-                <span class="tech-badge">NIIF / IFRS</span>
-                <span class="tech-badge">Excel PowerQuery</span>
-                <span class="tech-badge">Análisis Financiero</span>
-                <span class="tech-badge">Costos</span>
+        <div class="mission-box">
+            <div class="mission-text">
+                "Contador que no solo entiende los números, sino que construye la tecnología para gestionarlos eficientemente."
             </div>
-
-            <div class="skill-group">
-                <div class="skill-title">_LANGUAGES</div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                    <span>Español</span>
-                    <span class="str">"Native"</span>
-                </div>
-                <div style="display:flex; justify-content:space-between;">
-                    <span>Inglés</span>
-                    <span class="str">"Technical"</span>
-                </div>
+            <div class="profile-text">
+                Estudiante de Contaduría Pública (UCV) con formación en Administración (UCAB). Mi enfoque combina la normativa contable con el desarrollo de soluciones tecnológicas (Python, IA, n8n). No solo registro información: construyo las herramientas para optimizar su gestión, transformando datos financieros en insights accionables.
             </div>
-        </aside>
+        </div>
 
-        <main class="main-content">
+        <div class="layout-grid">
             
-            <div class="header-quote">
-                "Contador que no solo entiende los números, sino que construye la tecnología para gestionarlos. Mi objetivo: el puente entre la contabilidad tradicional y la transformación digital."
-            </div>
+            <main>
+                <section>
+                    <h2>Experiencia Profesional</h2>
 
-            <section>
-                <h2 class="section-title">01. Experiencia Profesional</h2>
-                
-                <div class="job-item">
-                    <div class="job-header">
-                        <div class="job-title">Co-Fundador & Dev de Automatizaciones</div>
-                        <div class="job-date">2025 - Presente</div>
-                    </div>
-                    <div class="job-company">365 Automations</div>
-                    <div class="job-desc">
-                        <ul>
-                            <li>Sistema automatizado de gestión de vacaciones (n8n + Telegram + Google Forms).</li>
-                            <li>Lógica de validación de disponibilidad de personal en tiempo real.</li>
-                            <li><strong>Impacto:</strong> Reducción del 90% en carga administrativa de RRHH.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="job-item">
-                    <div class="job-header">
-                        <div class="job-title">Despachador & Analista de Inventarios</div>
-                        <div class="job-date">2023 - 2024</div>
-                    </div>
-                    <div class="job-company">Crema Helados (Franquicia)</div>
-                    <div class="job-desc">
-                        <ul>
-                            <li>Desarrollo de herramienta propia en Excel para gestión de inventarios masivos.</li>
-                            <li><strong>Impacto:</strong> Reducción de errores de stock en un 40% mediante validación de datos.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="job-item">
-                    <div class="job-header">
-                        <div class="job-title">Redactor de Contenido</div>
-                        <div class="job-date">2022 - 2023</div>
-                    </div>
-                    <div class="job-company">Contexto Diario</div>
-                    <div class="job-desc">
-                        <ul>
-                            <li>Investigación, síntesis y redacción bajo plazos estrictos (Deadlines).</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">02. Proyectos & Portafolio</h2>
-                
-                <div class="job-item">
-                    <div class="job-header">
-                        <div class="job-title">Chatbot Contable con IA (Gemini)</div>
-                    </div>
-                    <div class="job-desc">
-                        Asistente virtual entrenado con Prompt Engineering avanzado para resolver dudas sobre NIIF y asientos contables.
-                        <div class="project-links">
-                            <a href="https://huggingface.co/spaces/nachosotillo/chatbot-contable">🔗 Deploy en HuggingFace</a>
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div>
+                                <div class="entry-title">Co-Fundador & Desarrollador de Automatizaciones</div>
+                                <div class="entry-org">365 Automations</div>
+                            </div>
+                            <div class="entry-date">2025 - Actualidad</div>
+                        </div>
+                        <div class="entry-content">
+                            <ul>
+                                <li><strong>Proyecto destacado:</strong> Desarrollo de sistema automatizado de gestión de vacaciones para restaurante (n8n, Google Forms, Telegram).</li>
+                                <li>Implementación de workflow inteligente que valida disponibilidad mínima de personal antes de aprobar solicitudes.</li>
+                                <li>Automatización completa: recepción → validación → aprobación/rechazo → notificación multicanal.</li>
+                                <li><strong>Impacto:</strong> Reducción de tiempo de gestión administrativa de RRHH en un 90%.</li>
+                            </ul>
                         </div>
                     </div>
-                </div>
 
-                <div class="job-item">
-                    <div class="job-header">
-                        <div class="job-title">Web Apps Contables (PPE & Depreciación)</div>
-                    </div>
-                    <div class="job-desc">
-                        Suite educativa interactiva que digitaliza el aprendizaje de normativa contable.
-                        <div class="project-links">
-                            <a href="https://nachosotillo.github.io/PPE/">🔗 Demo PPE</a>
-                            <a href="https://nachosotillo.github.io/depreciacion2.0/">🔗 Demo Depreciación</a>
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div>
+                                <div class="entry-title">Despachador & Analista de Inventarios</div>
+                                <div class="entry-org">Crema Helados (Franquicia)</div>
+                            </div>
+                            <div class="entry-date">2023 - 2024</div>
+                        </div>
+                        <div class="entry-content">
+                            <ul>
+                                <li>Diseño e implementación de sistema automatizado en Excel para gestión de inventarios, eliminando procesos manuales.</li>
+                                <li>Optimización del proceso de pedidos, reduciendo errores de stock y mejorando la eficiencia operativa en 40%.</li>
+                                <li>Manejo de inventarios de alto volumen con precisión y atención a mayoristas.</li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <section>
-                <h2 class="section-title">03. Formación Académica</h2>
-                <div class="job-item">
-                    <div class="job-header">
-                        <div class="job-title">Licenciatura en Contaduría Pública</div>
-                        <div class="job-date">En curso</div>
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div>
+                                <div class="entry-title">Redactor de Contenido</div>
+                                <div class="entry-org">Contexto Diario</div>
+                            </div>
+                            <div class="entry-date">2022 - 2023</div>
+                        </div>
+                        <div class="entry-content">
+                            <ul>
+                                <li>Redacción de artículos bajo estándares editoriales estrictos.</li>
+                                <li>Desarrollo de habilidades de síntesis, comunicación escrita y trabajo bajo presión (Deadlines).</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="job-company">Universidad Central de Venezuela (UCV)</div>
-                    <div class="job-desc" style="font-size: 0.9em; margin-top:5px;">4to Semestre | Énfasis en Sistemas Financieros</div>
-                </div>
-            </section>
-            
-            <section style="margin-top: 20px;">
-                 <h2 class="section-title">04. Certificaciones (Platzi)</h2>
-                 <div class="certs-grid">
-                     <div>
-                         <div class="cert-item"><strong>IA y Automatización</strong><small>Ingeniería de Prompts • Agentes IA • n8n</small></div>
-                         <div class="cert-item"><strong>Lógica y Mate</strong><small>Algoritmos • Lenguaje Matemático</small></div>
-                     </div>
-                     <div>
-                         <div class="cert-item"><strong>Data & Python</strong><small>Python Fundamentos • Excel Avanzado</small></div>
-                         <div class="cert-item"><strong>Finanzas</strong><small>Bitcoin/Blockchain • Finanzas Personales</small></div>
-                     </div>
-                 </div>
-            </section>
+                </section>
 
-        </main>
+                <section>
+                    <h2>Proyectos Tecnológicos</h2>
+
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div class="entry-title">Chatbot Contable con IA</div>
+                        </div>
+                        <div class="entry-content">
+                            Asistente virtual especializado en consultas contables, desarrollado con <strong>Google Gemini AI</strong> y Python. Sistema entrenado con ingeniería de prompts avanzada para resolver dudas sobre normativa NIIF y asientos contables.
+                            <div class="links-row">
+                                <a href="https://huggingface.co/spaces/nachosotillo/chatbot-contable" target="_blank">Ver en Hugging Face</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div class="entry-title">Plataforma Web de Estudio Contable</div>
+                        </div>
+                        <div class="entry-content">
+                            Suite de aplicaciones web educativas para el estudio interactivo de Propiedad, Planta y Equipo (PPE) y Depreciación. Interfaces visualmente optimizadas que convierten contenido académico en herramientas digitales.
+                            <div class="links-row">
+                                <a href="https://nachosotillo.github.io/PPE/" target="_blank">Demo PPE</a>
+                                <a href="https://nachosotillo.github.io/depreciacion2.0/" target="_blank">Demo Depreciación</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside>
+                <section class="skill-block">
+                    <h2>Educación</h2>
+                    <div class="entry" style="margin-bottom: 15px;">
+                        <div class="entry-title" style="font-size: 0.95em;">Contaduría Pública</div>
+                        <div class="entry-org">Univ. Central de Venezuela</div>
+                        <div class="entry-date">2024 - Presente (4to Sem)</div>
+                    </div>
+                    <div class="entry">
+                        <div class="entry-title" style="font-size: 0.95em;">Admin. de Empresas</div>
+                        <div class="entry-org">UCAB</div>
+                        <div class="entry-date">2017 - 2019 (4 Semestres)</div>
+                    </div>
+                </section>
+
+                <section class="skill-block">
+                    <h2>Tech Stack</h2>
+                    <span class="skill-category">Desarrollo & IA</span>
+                    <div class="tag-cloud">
+                        <span class="tag tech">Python</span>
+                        <span class="tag tech">Gemini API</span>
+                        <span class="tag tech">HuggingFace</span>
+                        <span class="tag tech">n8n</span>
+                        <span class="tag tech">Gradio</span>
+                        <span class="tag tech">Git</span>
+                    </div>
+
+                    <span class="skill-category" style="margin-top: 10px;">Finanzas Core</span>
+                    <div class="tag-cloud">
+                        <span class="tag">NIIF / IFRS</span>
+                        <span class="tag">Excel Avanzado</span>
+                        <span class="tag">Análisis Financiero</span>
+                        <span class="tag">Costos</span>
+                    </div>
+                </section>
+
+                <section class="skill-block">
+                    <h2>Cursos (Platzi)</h2>
+                    
+                    <span class="skill-category">IA & Automatización (2025)</span>
+                    <div class="cert-list">
+                        <div class="cert-item"><strong>Ingeniería de Prompts</strong></div>
+                        <div class="cert-item"><strong>N8N: Automatización</strong></div>
+                        <div class="cert-item"><strong>Agentes de IA</strong></div>
+                    </div>
+
+                    <span class="skill-category" style="margin-top: 15px;">Matemáticas & Lógica</span>
+                    <div class="cert-list">
+                        <div class="cert-item"><strong>Algoritmos y Lógica</strong></div>
+                        <div class="cert-item"><strong>Lenguaje Matemático</strong></div>
+                    </div>
+
+                    <span class="skill-category" style="margin-top: 15px;">Data & Finanzas</span>
+                    <div class="cert-list">
+                        <div class="cert-item"><strong>Fundamentos de Python</strong></div>
+                        <div class="cert-item"><strong>Análisis de Negocios</strong></div>
+                        <div class="cert-item"><strong>Bitcoin y Blockchain</strong></div>
+                    </div>
+                </section>
+
+                <section class="skill-block">
+                    <h2>Idiomas</h2>
+                    <div class="cert-list">
+                        <div class="cert-item"><strong>Español</strong><span>Nativo</span></div>
+                        <div class="cert-item"><strong>Inglés</strong><span>Técnico (Lectura)</span></div>
+                    </div>
+                </section>
+            </aside>
+        </div>
     </div>
 </body>
 </html>
