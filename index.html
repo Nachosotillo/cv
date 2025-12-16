@@ -24,8 +24,8 @@
             background-color: #f1f5f9;
             color: var(--slate);
             font-family: 'Inter', sans-serif;
-            font-size: 13.5px;
-            line-height: 1.6;
+            font-size: 12.8px; /* Ajuste sutil para que quepa todo mejor */
+            line-height: 1.55;
         }
 
         .page {
@@ -33,15 +33,15 @@
             margin: 40px auto;
             background: var(--bg);
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            padding: 50px;
+            padding: 45px; /* Un poco menos de padding */
             position: relative;
         }
 
         /* HEADER */
         header {
             border-bottom: 2px solid var(--ink);
-            padding-bottom: 25px;
-            margin-bottom: 30px;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -66,7 +66,7 @@
 
         .contact-grid {
             text-align: right;
-            font-size: 0.8em;
+            font-size: 0.85em;
         }
         .contact-grid a {
             color: var(--slate);
@@ -80,16 +80,19 @@
         /* MISSION HOOK */
         .mission-box {
             background: var(--surface);
-            padding: 20px;
+            padding: 18px;
             border-left: 4px solid var(--accent);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            /* EVITA QUE SE ROMPA AL IMPRIMIR */
+            break-inside: avoid; 
+            page-break-inside: avoid;
         }
         .mission-text {
             font-family: 'Playfair Display', serif;
             font-size: 1.1em;
             font-style: italic;
             color: var(--ink);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .profile-text {
             font-size: 0.95em;
@@ -111,24 +114,38 @@
             color: var(--ink);
             font-weight: 800;
             border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            margin-top: 10px;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+            margin-top: 5px;
+            /* EVITA QUEDARSE SOLO AL FINAL DE LA HOJA */
+            break-after: avoid; 
+            page-break-after: avoid;
         }
 
-        /* EXPERIENCIA */
-        .entry { margin-bottom: 25px; }
-        .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+        /* BLOQUES DE CONTENIDO (Entradas y Skills) */
+        .entry, .skill-block { 
+            margin-bottom: 20px; 
+            /* LA CLAVE: MANTIENE EL BLOQUE UNIDO */
+            break-inside: avoid; 
+            page-break-inside: avoid; 
+        }
+
+        .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
         .entry-title { font-weight: 700; color: var(--ink); font-size: 1.05em; }
         .entry-org { color: var(--accent); font-weight: 600; font-size: 0.9em; }
         .entry-date { font-size: 0.8em; font-style: italic; color: var(--light-slate); }
         
-        .entry-content ul { list-style: none; margin-top: 8px; }
-        .entry-content li { position: relative; padding-left: 15px; margin-bottom: 4px; text-align: justify; }
+        .entry-content ul { list-style: none; margin-top: 6px; }
+        .entry-content li { position: relative; padding-left: 14px; margin-bottom: 3px; text-align: justify; }
         .entry-content li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
 
         /* LINKS */
-        .links-row { margin-top: 8px; }
+        .links-row { 
+            margin-top: 8px; 
+            /* Asegura que los links se queden con su texto */
+            break-inside: avoid; 
+            page-break-inside: avoid;
+        }
         .links-row a {
             display: inline-block; font-size: 0.75em; text-transform: uppercase; text-decoration: none;
             color: var(--ink); border: 1px solid #e2e8f0; padding: 3px 10px; margin-right: 8px;
@@ -137,20 +154,18 @@
         .links-row a:hover { background: var(--accent); color: white; border-color: var(--accent); }
 
         /* SIDEBAR ITEMS */
-        .skill-block { margin-bottom: 25px; }
-        .skill-category { font-weight: 700; font-size: 0.85em; color: var(--ink); margin-bottom: 8px; display: block;}
+        .skill-category { font-weight: 700; font-size: 0.85em; color: var(--ink); margin-bottom: 6px; display: block;}
         
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px; }
-        .tag { background: var(--surface); padding: 3px 8px; font-size: 0.8em; border-radius: 2px; color: var(--slate); border: 1px solid #e2e8f0; }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+        .tag { background: var(--surface); padding: 3px 7px; font-size: 0.8em; border-radius: 2px; color: var(--slate); border: 1px solid #e2e8f0; }
         .tag.tech { border-color: #bfdbfe; color: #1e40af; background: #eff6ff; }
 
-        /* CURSOS CON FECHAS */
         .cert-list .cert-item {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             border-left: 2px solid #e2e8f0;
-            padding-left: 10px;
+            padding-left: 8px;
             display: flex;
-            justify-content: space-between; /* Separa nombre y fecha */
+            justify-content: space-between;
             align-items: baseline;
         }
         .cert-item strong { font-size: 0.85em; color: var(--ink); }
@@ -160,18 +175,28 @@
             position: fixed; bottom: 30px; right: 30px;
             background: var(--ink); color: white; padding: 15px 30px;
             border-radius: 50px; text-decoration: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            font-weight: 600; border: none; cursor: pointer; transition: transform 0.2s;
+            font-weight: 600; border: none; cursor: pointer; transition: transform 0.2s; z-index: 999;
         }
         .download-btn:hover { transform: translateY(-3px); background: var(--accent); }
 
         @media print {
             body { background: white; }
-            .page { margin: 0; box-shadow: none; width: 100%; max-width: 100%; padding: 40px; }
+            .page { 
+                margin: 0; 
+                box-shadow: none; 
+                width: 100%; 
+                max-width: 100%; 
+                padding: 30px 40px; /* Márgenes optimizados para A4 */
+            }
             .download-btn { display: none; }
             .mission-box { border-left-width: 2px !important; background-color: #f8fafc !important; -webkit-print-color-adjust: exact; }
             a { color: var(--ink); text-decoration: none; }
             .tag.tech { border: 1px solid #cbd5e1; }
-            @page { margin: 0; size: A4; }
+            
+            /* Asegurar que las columnas se impriman una al lado de la otra */
+            .layout-grid { display: grid; grid-template-columns: 63% 32%; gap: 5%; }
+            
+            @page { margin: 0.8cm; size: A4; }
         }
 
         @media (max-width: 768px) {
@@ -301,7 +326,7 @@
             <aside>
                 <section class="skill-block">
                     <h2>Educación</h2>
-                    <div class="entry" style="margin-bottom: 15px;">
+                    <div class="entry" style="margin-bottom: 12px;">
                         <div class="entry-title" style="font-size: 0.95em;">Contaduría Pública</div>
                         <div class="entry-org">Univ. Central de Venezuela</div>
                         <div class="entry-date">2024 - Presente (4to Sem)</div>
